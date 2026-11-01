@@ -1,0 +1,263 @@
+:root {
+  --fundo: #0a0a0a;
+  --tinta: #f2f0e9;
+  --acento: #d8ff3e;
+  --acento2: #ff3ea5;
+  --borda: 2px solid var(--tinta);
+  --mono: "Courier New", ui-monospace, monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--fundo);
+  color: var(--tinta);
+  font-family: var(--mono);
+  overflow-x: hidden;
+}
+
+::selection { background: var(--acento); color: #000; }
+
+/* ---------- topo fixo ---------- */
+.topo {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  background: var(--fundo);
+  border-bottom: var(--borda);
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.marca { font-size: 1.1rem; }
+.marca::after { content: " ●"; color: var(--acento); animation: pisca 1.2s steps(2) infinite; }
+
+@keyframes pisca { 50% { opacity: 0; } }
+
+.menu a {
+  color: var(--tinta);
+  text-decoration: none;
+  margin-left: 22px;
+  padding: 4px 8px;
+  border: 2px solid transparent;
+}
+.menu a:hover {
+  border: var(--borda);
+  background: var(--acento);
+  color: #000;
+}
+
+.relogio { color: var(--acento2); }
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 560px;
+  border-bottom: var(--borda);
+  overflow: hidden;
+}
+
+#hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero-texto {
+  position: absolute;
+  left: 24px;
+  bottom: 90px;
+  z-index: 2;
+}
+
+.hero-texto h1 {
+  font-size: clamp(3rem, 11vw, 9rem);
+  line-height: 0.88;
+  text-transform: uppercase;
+  color: var(--tinta);
+  text-shadow: 4px 4px 0 #000;
+  mix-blend-mode: difference;
+}
+
+.sub {
+  margin-top: 14px;
+  max-width: 420px;
+  background: #000;
+  border: var(--borda);
+  display: inline-block;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+}
+
+.botao {
+  margin-top: 18px;
+  font-family: var(--mono);
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  background: var(--acento);
+  color: #000;
+  border: var(--borda);
+  cursor: pointer;
+  box-shadow: 6px 6px 0 var(--acento2);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+.botao:hover { transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--acento2); }
+.botao:active { transform: translate(6px, 6px); box-shadow: 0 0 0 var(--acento2); }
+
+.hero-rodape {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 2;
+  display: flex;
+  gap: 30px;
+  padding: 10px 24px;
+  background: #000;
+  border-top: var(--borda);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+#obra-seed { color: var(--acento); }
+#obra-titulo { color: var(--acento2); margin-left: auto; }
+
+/* ---------- faixa marquee ---------- */
+.faixa {
+  overflow: hidden;
+  border-bottom: var(--borda);
+  background: var(--acento);
+  color: #000;
+  white-space: nowrap;
+}
+.faixa-texto {
+  display: inline-block;
+  padding: 10px 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  animation: marquee 18s linear infinite;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ---------- seções ---------- */
+section { padding: 70px 24px; border-bottom: var(--borda); }
+
+.titulo-secao {
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.titulo-secao::after { content: "_"; color: var(--acento); animation: pisca 1s steps(2) infinite; }
+
+.desc-secao { margin-bottom: 34px; opacity: 0.8; max-width: 520px; }
+
+/* ---------- galeria ---------- */
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.peca {
+  border: var(--borda);
+  background: #000;
+}
+.peca canvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+.peca figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  border-top: var(--borda);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.botao-mini {
+  font-family: var(--mono);
+  font-size: 1rem;
+  background: var(--tinta);
+  color: #000;
+  border: 2px solid var(--tinta);
+  cursor: pointer;
+  width: 34px; height: 34px;
+}
+.botao-mini:hover { background: var(--acento2); border-color: var(--acento2); color: var(--tinta); }
+
+/* ---------- sobre ---------- */
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 40px;
+  margin-top: 26px;
+}
+.sobre-grande {
+  font-size: clamp(1.3rem, 2.6vw, 2rem);
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+.sobre-grande::first-letter { color: var(--acento); }
+.sobre-detalhes p { margin-bottom: 18px; line-height: 1.6; opacity: 0.85; }
+.sobre-detalhes ul { list-style: none; line-height: 2; }
+.sobre-detalhes li { border-bottom: 1px dashed var(--tinta); }
+
+/* ---------- contato ---------- */
+.contato { text-align: left; }
+.contato-grande { font-size: 1.2rem; margin: 18px 0; text-transform: uppercase; }
+.email-grande {
+  display: inline-block;
+  font-size: clamp(1.2rem, 4vw, 2.6rem);
+  font-weight: bold;
+  color: var(--acento);
+  text-decoration: none;
+  border: var(--borda);
+  padding: 14px 22px;
+  word-break: break-all;
+}
+.email-grande:hover { background: var(--acento); color: #000; }
+.redes { margin-top: 26px; display: flex; gap: 16px; flex-wrap: wrap; }
+.redes a {
+  color: var(--tinta);
+  text-decoration: none;
+  border: var(--borda);
+  padding: 8px 14px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+.redes a:hover { background: var(--acento2); border-color: var(--acento2); }
+
+/* ---------- rodapé ---------- */
+.rodape {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 18px 24px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+.rodape a { color: var(--acento); text-decoration: none; }
+.rodape a:hover { text-decoration: underline; }
+
+@media (max-width: 760px) {
+  .sobre-grid { grid-template-columns: 1fr; }
+  .relogio { display: none; }
+  .hero-texto { bottom: 110px; }
+}
