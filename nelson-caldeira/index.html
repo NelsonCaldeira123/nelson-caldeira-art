@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NELSON CALDEIRA — arte generativa</title>
+  <meta name="description" content="Portfólio de Nelson Caldeira: arte generativa, código e caos controlado.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topo">
+    <div class="marca">NELSON&nbsp;CALDEIRA®</div>
+    <nav class="menu">
+      <a href="#galeria">GALERIA</a>
+      <a href="#sobre">SOBRE</a>
+      <a href="#contato">CONTATO</a>
+    </nav>
+    <div class="relogio" id="relogio">00:00:00</div>
+  </header>
+
+  <main>
+
+    <section class="hero" id="topo">
+      <canvas id="hero-canvas"></canvas>
+      <div class="hero-texto">
+        <h1>ARTE<br>GENERATIVA</h1>
+        <p class="sub">código como pincel · caos como tinta · cada visita, uma obra única</p>
+        <button id="btn-regenerar" class="botao">↻ GERAR NOVA OBRA</button>
+      </div>
+      <div class="hero-rodape">
+        <span>OBRA Nº <span id="obra-num">0001</span></span>
+        <span>SEED <span id="obra-seed">—</span></span>
+        <span id="obra-titulo">—</span>
+      </div>
+    </section>
+
+    <section class="faixa">
+      <div class="faixa-texto">CÓDIGO ✕ CAOS ✕ FORMA ✕ SOM ✕ MOVIMENTO ✕ CÓDIGO ✕ CAOS ✕ FORMA ✕ SOM ✕ MOVIMENTO ✕</div>
+    </section>
+
+    <section class="galeria" id="galeria">
+      <h2 class="titulo-secao">GALERIA_</h2>
+      <p class="desc-secao">cada peça é desenhada ao vivo pelo navegador. clique em "regenerar" para uma nova semente.</p>
+      <div class="grade" id="grade">
+        <figure class="peca" data-tipo="flow">
+          <canvas></canvas>
+          <figcaption><span class="peca-nome">CAMPO DE FLUXO</span><button class="botao-mini btn-reg">↻</button></figcaption>
+        </figure>
+        <figure class="peca" data-tipo="truchet">
+          <canvas></canvas>
+          <figcaption><span class="peca-nome">TRUCHET RUÍDO</span><button class="botao-mini btn-reg">↻</button></figcaption>
+        </figure>
+        <figure class="peca" data-tipo="orbitas">
+          <canvas></canvas>
+          <figcaption><span class="peca-nome">ÓRBITAS SISMICAS</span><button class="botao-mini btn-reg">↻</button></figcaption>
+        </figure>
+        <figure class="peca" data-tipo="ruido">
+          <canvas></canvas>
+          <figcaption><span class="peca-nome">TERRENO DE RUÍDO</span><button class="botao-mini btn-reg">↻</button></figcaption>
+        </figure>
+        <figure class="peca" data-tipo="particulas">
+          <canvas></canvas>
+          <figcaption><span class="peca-nome">ENXAME</span><button class="botao-mini btn-reg">↻</button></figcaption>
+        </figure>
+        <figure class="peca" data-tipo="circuitos">
+          <canvas></canvas>
+          <figcaption><span class="peca-nome">CIRCUITO VIVO</span><button class="botao-mini btn-reg">↻</button></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="sobre" id="sobre">
+      <h2 class="titulo-secao">SOBRE_</h2>
+      <div class="sobre-grid">
+        <p class="sobre-grande">Nelson Caldeira transforma algoritmos em matéria-prima artística. Cada obra nasce de uma semente numérica e existe plenamente apenas no instante em que é renderizada.</p>
+        <div class="sobre-detalhes">
+          <p>Trabalha na interseção entre programação criativa, design e sistemas complexos. Usa principalmente JavaScript puro, canvas 2D e matemática do caos.</p>
+          <ul>
+            <li>▸ flow fields & autômatos celulares</li>
+            <li>▸ tile systems (truchet, wang)</li>
+            <li>▸ partículas e sistemas de órbitas</li>
+            <li>▸ ruído procedural & terreno generativo</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="contato" id="contato">
+      <h2 class="titulo-secao">CONTATO_</h2>
+      <p class="contato-grande">para comissões, colaborações ou apenas trocar uma semente:</p>
+      <a class="email-grande" href="mailto:contato@nelsoncaldeira.art">contato@nelsoncaldeira.art</a>
+      <div class="redes">
+        <a href="#contato">INSTAGRAM ↗</a>
+        <a href="#contato">GITHUB ↗</a>
+        <a href="#contato">ARE.NA ↗</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <span>© <span id="ano"></span> NELSON CALDEIRA — feito por algoritmos, operado por humanos</span>
+    <a href="#topo">VOLTAR AO TOPO ↑</a>
+  </footer>
+
+  <script src="arte.js"></script>
+</body>
+</html>
